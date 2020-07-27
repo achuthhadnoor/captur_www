@@ -21,7 +21,7 @@ export default function Home() {
                     A simple Screen recorder tool build for better user experience.
                 </p>
                
-                <svg style={{marginTop:'30px'}} width="508" height="147" viewBox="0 0 508 147" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg style={{marginTop:'30px'}} width="" height="" viewBox="0 0 508 147" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g filter="url(#filter0_d)">
                         <rect x="135" y="80" width="219" height="30" rx="3" fill="#212634" />
                     </g>
