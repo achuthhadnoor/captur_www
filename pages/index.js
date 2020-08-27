@@ -12,7 +12,7 @@ export default function Home() {
             <script async src="https://www.googletagmanager.com/gtag/js?id=UA-169182524-1"></script>
                 <script>
                   window.dataLayer = window.dataLayer || [];
-                  function gtag(){dataLayer.push(arguments)}
+                  function gtag(){window.dataLayer.push(arguments)}
                   gtag('js', new Date());
 
                   gtag('config', 'UA-169182524-1');
