@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Icon from 'react-icons-kit'
 import {apple,linux,windows} from 'react-icons-kit/fa'
-import { submitEmail, getRecords } from "./services/api";
+import { submitEmail, getRecords } from "../services/api";
 
 
 export default function Home() {
