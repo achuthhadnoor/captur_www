@@ -1,14 +1,41 @@
 import Head from 'next/head'
 import Icon from 'react-icons-kit'
 import {apple,linux,windows} from 'react-icons-kit/fa'
+import { submitEmail, getRecords } from "./services/api";
+
 
 export default function Home() {
-    return (
+    const [email,setEmail] = React.useState('');
+    const [semail,setSemail] = React.useState(false);
+    const [showLoading,setShowLoading] = React.useState(false);
+    const debounce = (func, wait) => {
+    let timeout; 
+    return function executedFunction(...args) { 
+        const later = () => { 
+        timeout = null; 
+        func(...args);
+        }; 
+        clearTimeout(timeout); 
+        timeout = setTimeout(later, wait);
+    };
+    }; 
+   const submit = (e)=>{ 
+        e.preventDefault(); 
+        setShowLoading(true);
+         submitEmail(email).then(e => {
+            setShowLoading(false);  
+            setSemail(true);
+            setEmail('')
+           setTimeout(()=>{setSemail(false) },1000)
+        })
+    }  
+
+ return (
         <div className="container">
             <Head>
                 <title>Captur | simple screen recorder built for better user experience</title>
-                <link rel="icon" href="/favicon.ico" />
-                    </Head>
+                <link rel="icon" href="/favicon.ico" /> 
+            </Head>
 
             <main>
                 <h1>
@@ -71,7 +98,16 @@ export default function Home() {
                         </filter>
                     </defs>
                 </svg>
-
+           {showLoading ? <span>.....</span> : <>{semail ? 'Thanks for joining us ;)' :<form className="submitmail" onSubmit={submit}>
+                <input 
+                    className="submitInput" 
+                    value={email} 
+                    onChange={(e)=>{setEmail(e.target.value)}}
+                    placeholder="Join the early beta"
+                    type="email"
+                    required />
+                    <button type="submit" className="submit_btn">Join</button>
+            </form> }</>}
             <div className='social'>
                 <a
                     href="https://achuth.now.sh"
@@ -91,8 +127,9 @@ export default function Home() {
                     rel="noopener noreferrer"
                 ><Icon icon={linux}/></a>
             </div>
-            </main>
-
+           
+               
+                 </main> 
             <footer>
                     Created by 
                     
@@ -243,6 +280,20 @@ export default function Home() {
             width: 100%;
             flex-direction: column;
           }
+        }
+        .submitInput{
+            border: 1px solid #121212;
+            background: transparent;
+            padding: 10px;
+            border-radius: 10px 0px 0px 10px;
+            outline:none;
+        }
+        .submit_btn{
+            padding: 10px;
+            background: #121212;
+            color: #f3eee6;
+            border: 1px solid #121212;
+            border-radius: 0px 10px 10px 0px;
         }
       `}</style>
 
