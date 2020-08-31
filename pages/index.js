@@ -7,18 +7,7 @@ import { submitEmail, getRecords } from "../services/api";
 export default function Home() {
     const [email,setEmail] = React.useState('');
     const [semail,setSemail] = React.useState(false);
-    const [showLoading,setShowLoading] = React.useState(false);
-    const debounce = (func, wait) => {
-    let timeout; 
-    return function executedFunction(...args) { 
-        const later = () => { 
-        timeout = null; 
-        func(...args);
-        }; 
-        clearTimeout(timeout); 
-        timeout = setTimeout(later, wait);
-    };
-    }; 
+    const [showLoading,setShowLoading] = React.useState(false); 
    const submit = (e)=>{ 
         e.preventDefault(); 
         setShowLoading(true);
@@ -98,20 +87,27 @@ export default function Home() {
                         </filter>
                     </defs>
                 </svg>
-           {showLoading ? <span>.....</span> : <>{semail ? 'Thanks for joining us ;)' :<form className="submitmail" onSubmit={submit}>
-                <input 
-                    className="submitInput" 
-                    value={email} 
-                    onChange={(e)=>{setEmail(e.target.value)}}
-                    placeholder="Join the early beta"
-                    type="email"
-                    required />
-                    <button type="submit" className="submit_btn">Join</button>
+           {showLoading ? <span>.....</span> : <>{semail ? 'Thanks for joining us ;)' :
+            <form className="submitmail" onSubmit={submit} >
+                    <input 
+                        id="email"
+                        label="email"
+                        type="email"
+                        className="submitInput" 
+                        value={email} 
+                        onChange={(e)=>{setEmail(e.target.value)}}
+                        placeholder="Join the early beta"
+                        required />
+                <label style={{fontSize:0}} for="email">
+                    Join Us
+                </label>
+                    <button label="Submit" type="submit" className="submit_btn">Join</button>
             </form> }</>}
             <div className='social'>
                 <a
                     href="https://achuth.now.sh"
                     target="_blank"
+                    aria-label="Mac"
                     rel="noopener noreferrer"
                 ><Icon icon={apple}/></a>
                 
@@ -119,10 +115,12 @@ export default function Home() {
                     href="https://achuth.now.sh"
                     target="_blank"
                     rel="noopener noreferrer"
+                    aria-label="windows"
                 ><Icon icon={windows}/></a>
                 
                 <a
                     href="https://achuth.now.sh"
+                     aria-label="linux"
                     target="_blank"
                     rel="noopener noreferrer"
                 ><Icon icon={linux}/></a>
