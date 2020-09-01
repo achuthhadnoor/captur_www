@@ -561,7 +561,8 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                
+                </section>
+                <section id="faqs"> 
                     <div id="section_container">
                         <h1 style={{textAlign:'center'}}>FAQ</h1>
                         <div id="section_faqDiv">
@@ -582,7 +583,8 @@ export default function Home() {
                         }
                         </div>
                     </div>
-                
+                </section>
+                <section id="downloads"> 
                     <div id="section_container">
                         <h1 style={{textAlign:'center'}}>Download</h1>
                         
@@ -618,41 +620,77 @@ export default function Home() {
                     </div>
                 </section>
             <footer>
-                    Created by 
-                    
+                <span style={{display:'flex', alignItems:"baseline" }}>
+                 Created by 
+                  
                 <a
-                    href="https://uiuxdx.now.sh"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{padding:'10px'}}
-                >
-                  {' '}UIUXDX
+                     href="https://uiuxdx.now.sh"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     style={{ padding: '10px' }}
+                 >
+                     {' '}UIUXDX
                 </a>
+                </span>
                 
                 <ul className="footer_main">
                     <li>
                         <ul> 
-                            <li>Product</li>
+                            <h3 className="list_header">Product</h3>
                             <li>Features</li>
-                            <li>Features</li>
-                            <li>Features</li>
+                            <li>Benifits</li>
+                            <li>Roadmap</li>
+                            <li>Contribute</li>
                         </ul>
                     </li>
                     <li>
                         <ul> 
-                            <li>Download</li>
+                            <h3 className="list_header">Download</h3>
                             <li>MacOs</li>
                             <li>Windows</li>
                             <li>Linux</li>                            
                         </ul>
                     </li>
+                    <li>
+                        <ul> 
+                            <h3 className="list_header">Legal</h3>
+                            <li>ImPrint</li>
+                            <li>Terms of use</li>
+                            <li>Privacy Policy</li>
+                            <li>GitHub Licence</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul> 
+                            <h3 className="list_header">Help</h3>
+                            <li>Contact</li>
+                            <li>Manual</li>
+                            <li>issue on GitHub</li>                            
+                        </ul>
+                    </li>
+                {showLoading ? <span>.....</span> : <>{semail ? 'Thanks for joining us ;)' :
+            <form className="submitmail" onSubmit={submit} >
+                    <input 
+                        id="email"
+                        label="email"
+                        type="email"
+                        className="submitInput" 
+                        value={email} 
+                        onChange={(e)=>{setEmail(e.target.value)}}
+                        placeholder="Join the early beta"
+                        required />
+                <label style={{fontSize:0}} for="email">
+                    Join Us
+                </label>
+                    <button label="Submit" type="submit" className="submit_btn">Join</button>
+            </form> }</>}
                 </ul>
             </footer>
 
             <style jsx>{`
         .container {
           min-height: 100vh;
-          padding: 0 0.5rem;
+          padding: 0.5rem 0.5rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -670,7 +708,6 @@ export default function Home() {
 
         footer {
           width: 100%;
-          height: 100px;
           border-top: 1px solid #eaeaea;
           display: flex;
           justify-content: center;
@@ -692,6 +729,18 @@ export default function Home() {
 
         .footer_main {
             display: flex;
+            align-items: baseline;
+        }
+
+        .list_header {
+            opacity: 0.72;
+        }
+
+        ul {
+            margin: 0px;
+            list-style: none;
+            font-size: 15px;
+            font-weight: 400;
         }
 
         a {
@@ -807,7 +856,7 @@ export default function Home() {
             border-radius: 0px 10px 10px 0px;
         }
         
-        #howto {
+        #howto, #faqs, #downloads {
             display: flex;
             background: #313950;
             width: 110%;
@@ -936,9 +985,13 @@ export default function Home() {
                     max-width: 600px;
                     margin: auto;
                     padding: 0px 20px;
+                    flex-direction: column
             }
             #downloadBtn {
                 margin: 5px 0px;
+            }
+            .footer_main {
+                flex-direction: column;
             }
         }
       `}</style>
