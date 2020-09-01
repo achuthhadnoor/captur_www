@@ -561,8 +561,7 @@ export default function Home() {
                             </div>
                         </div>
                     </div>
-                </section>
-                  <section id="howto"> 
+                
                     <div id="section_container">
                         <h1 style={{textAlign:'center'}}>FAQ</h1>
                         <div id="section_faqDiv">
@@ -583,6 +582,40 @@ export default function Home() {
                         }
                         </div>
                     </div>
+                
+                    <div id="section_container">
+                        <h1 style={{textAlign:'center'}}>Download</h1>
+                        
+                        <div id='section_downloadDiv'>
+                            <button id="downloadBtn">
+                                <a
+                                    href="https://achuth.now.sh"
+                                    target="_blank"
+                                    aria-label="Mac"
+                                    rel="noopener noreferrer"
+                                ><Icon icon={apple}/></a>
+                                <span>MacOs</span>
+                            </button>
+                             <button id="downloadBtn">
+                                <a
+                                    href="https://achuth.now.sh"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    aria-label="windows"
+                                ><Icon icon={windows} /></a>
+                                <span>Windows</span>
+                            </button>
+                             <button id="downloadBtn">                            
+                                <a
+                                    href="https://achuth.now.sh"
+                                    aria-label="linux"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                ><Icon icon={linux}/></a>
+                                <span>Linux</span>
+                            </button>
+                        </div>
+                    </div>
                 </section>
             <footer>
                     Created by 
@@ -595,6 +628,25 @@ export default function Home() {
                 >
                   {' '}UIUXDX
                 </a>
+                
+                <ul className="footer_main">
+                    <li>
+                        <ul> 
+                            <li>Product</li>
+                            <li>Features</li>
+                            <li>Features</li>
+                            <li>Features</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <ul> 
+                            <li>Download</li>
+                            <li>MacOs</li>
+                            <li>Windows</li>
+                            <li>Linux</li>                            
+                        </ul>
+                    </li>
+                </ul>
             </footer>
 
             <style jsx>{`
@@ -623,6 +675,7 @@ export default function Home() {
           display: flex;
           justify-content: center;
           align-items: center;
+          flex-direction: column;
         }
 
         footer img {
@@ -635,6 +688,10 @@ export default function Home() {
           align-items: center;
           color:#121212;
           font-weight:600
+        }
+
+        .footer_main {
+            display: flex;
         }
 
         a {
@@ -758,6 +815,7 @@ export default function Home() {
             height: 100%;
             transform: rotate(-2deg);
             padding: 20px 0px;
+            flex-direction: column;
 }
         }
         #section_container {
@@ -765,6 +823,7 @@ export default function Home() {
             padding: 0em 2rem;
             margin: auto;
             max-width: 1080px;
+            width: 100%;
             display: flex;
             flex-direction: column;
             flex: 1;
@@ -819,9 +878,29 @@ export default function Home() {
             text-align: left;
             justify-content: space-between;
         }
+        #section_downloadDiv {
+            display: flex; 
+            flex-direction:row;
+            padding: 2px 0px;
+            justify-content: center;
+        }
+        #downloadBtn {
+            background: #212634;
+            border: none;
+            outline: none;
+            border-radius: 5px;
+            height: 30px;
+            width: 120px;
+            color: #F3EEE6;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 0px 5px 0px 0px;
+        }
         @media (max-width: 800px) {
             #section_container {
               padding: 0px 20px;
+              width: 100%;
             }
             #howto {
                 padding: 20px 0px;
@@ -853,6 +932,14 @@ export default function Home() {
                     margin: auto;
                     padding: 0px 20px;
                 }
+            #section_downloadDiv {
+                    max-width: 600px;
+                    margin: auto;
+                    padding: 0px 20px;
+            }
+            #downloadBtn {
+                margin: 5px 0px;
+            }
         }
       `}</style>
         </div>
