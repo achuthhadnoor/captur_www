@@ -661,9 +661,9 @@ export default function Home() {
                     <li>
                         <ul> 
                             <h3 className="list_header">Download</h3>
-                            <li><a href="#features">MacOs</a></li>
-                            <li><a href="#features">Windows</a></li>
-                            <li><a href="#features">Linux</a></li>                            
+                            <li><a href="#downloads">MacOs</a></li>
+                            <li><a href="#downloads">Windows</a></li>
+                            <li><a href="#downloads">Linux</a></li>                            
                         </ul>
                     </li>
                     <li>
@@ -1005,6 +1005,7 @@ export default function Home() {
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
          overflow-x: hidden;
+         scroll-behavior: smooth;
         }
         * {
           box-sizing: border-box;
