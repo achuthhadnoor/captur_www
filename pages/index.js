@@ -608,7 +608,7 @@ export default function Home() {
                 </section>
                 <section id="downloads"> 
                     <div id="section_container">
-                        <h1 style={{textAlign:'center'}}>Download</h1>
+                        <h1 style={{textAlign:'left'}}>Download</h1>
                         <p>Unfortunately Captur has no valid certificate and is not signed, because app certificates for both macOS and Windows aren’t affordable for me as a student.
                         These warnings on installation might confuse you. <br/>
 
@@ -717,7 +717,6 @@ export default function Home() {
         }
 
         footer a {
-          display: flex;
           justify-content: center;
           align-items: center;
           color:#121212;
@@ -919,6 +918,7 @@ export default function Home() {
         }
         #fqaButton {
             display: flex;
+            padding: 0px;
             background-color: transparent;
             border: none;
             font: inherit;
@@ -932,7 +932,7 @@ export default function Home() {
             display: flex; 
             flex-direction:row;
             padding: 2px 0px;
-            justify-content: center;
+            justify-content: flex-start;
         }
         #downloadBtn {
             background: #212634;
@@ -985,11 +985,10 @@ export default function Home() {
             #section_downloadDiv {
                     max-width: 600px;
                     margin: auto;
-                    padding: 0px 20px;
-                    flex-direction: column
+                    flex-wrap: wrap;
             }
             #downloadBtn {
-                margin: 5px 0px;
+                margin: 5px 5px;
             }
             .footer_main {
                 flex-direction: column;

@@ -27,6 +27,7 @@ class MyDocument extends Document {
             Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
             sans-serif;
          overflow-x: hidden;
+         scroll-behavior: smooth;
         }
 
         * {
